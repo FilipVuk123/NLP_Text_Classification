@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+    <div class="login" style="margin-left:25px;">
+        <h1>Author classification</h1>
+
+        <h3>Write a tweet and I will try and guess who wrote it!</h3>
+        <form action="{{ url_for('predict')}}" method="post" required="required">
+            <select id="cars" name="cars" size="2" style="width:400px; margin-left:25px;">
+                <option value="model1">Elon Musk vs Barack Obama vs Oprah Winfrey</option>
+                <option value="model2">Katy Perry vs Joe Biden vs Steve Wozniak</option>
+            </select>
+            
+            <br>
+
+            <input type="text" style="width:1200px; height:30px;" name="tweet" placeholder="tweet" required="required" />
+
+            <button type="submit" style="width:80px; height:30px;" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+        <br>
+        <br>
+        {{ prediction_text }}
+
+    </div>
+
+
+</body>
+
+</html>
